@@ -6,3 +6,10 @@
     flex-direction: column;
     height: 100vh;
 }
+.hidden{
+    visibility: hidden;
+}
+
+.visible{
+    visibility: visible;
+}
