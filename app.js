@@ -14,11 +14,14 @@ const argv = yargs
     .alias('help', 'h')
     .argv;
     
+console.log(argv);
 
 let apiAddress = `https://maps.googleapis.com/maps/api/geocode/json?address=`;
-let address = `9601%20S%20Meridian%20Blvd,%20Englewood,%20CO%2080112`;
-let inputAddress = `${apiAddress}${address}`;
+let addressEncoded = argv.address;
+let addressDecoded = decodeURIComponent(addressEncoded);
+let inputAddress = `${apiAddress}${addressDecoded}`;
 
+console.log(`Address: ${addressDecoded}`);
 let formattedAddress = ``;
 let longitude = null;
 let lattitude = null;
