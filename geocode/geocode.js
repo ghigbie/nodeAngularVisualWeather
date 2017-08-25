@@ -6,7 +6,7 @@ const request = require('request');
 // let lattitude = null;
 
 
-let geocodeAddress = (inputAddress) => {
+let geocodeAddress = (inputAddress, callback) => {
     let apiAddress = `https://maps.googleapis.com/maps/api/geocode/json?address=`;
     let addressEncoded = encodeURIComponent(inputAddress); //gets the address variablea and encodes it
     let addressDecoded = decodeURIComponent(addressEncoded); //decodes the address to be more readable
@@ -19,11 +19,9 @@ let geocodeAddress = (inputAddress) => {
         }, 
     (error, response, body) => {
         if(error){
-            console.log(`Unable to connect to servers.`);
-            console.log(error);
+            callback(`Unable to connect to servers.`);
         }else if(body.status === 'ZERO_RESULTS'){
-            console.log(`Unable to locate that address or zip code...`);
-            console.log(`Please enter a valid address or zip code.`);
+            callback(`Unable to locate that address or zip code...\n Please enter a valid address or zip code.`);
         }else if(body.status === 'OK'){
             console.log(JSON.stringify(body, undefined, 2));
             let longitude = body.results[0].geometry.location.lng;
