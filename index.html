@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,9 +19,11 @@
             <form>
                 <div class="form-group">
                     <label>Please enter your zip code or city and state.</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" type="text" id="location" name="location" placeholder="96817...Honolulu, HI">
                 </div>
             </form>
         </div>
+        <div class="container man-content flex-box"></div>
+        <script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
     </body>
 </html>
