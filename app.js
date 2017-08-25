@@ -1,4 +1,4 @@
-const request = require('express');
+const request = require('request');
 
 let apiAddress = `https://maps.googleapis.com/maps/api/geocode/json?address=`;
 let address = `9601%20S%20Meridian%20Blvd,%20Englewood,%20CO%2080112`;
@@ -13,4 +13,4 @@ request(
     
     (error, response, body) => {
         console.log(body);
-})
+});
