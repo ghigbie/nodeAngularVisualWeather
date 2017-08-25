@@ -32,6 +32,13 @@ request(
     url: inputAddress,
     json: true //this property converts json string into json object
 }, (error, response, body) => {
+    if(error){
+        console.log(`Unable to connect to servers.`);
+        console.log(error);
+    }else if(body.status === "ZERO RESULTS"){
+        console.log(`Unable to locate that address or zip code...`);
+        console.log(`Please enter a valid address or zip code.`);
+    }else{
         console.log(JSON.stringify(body, undefined, 2));
         formattedAddress = body.results[0].formatted_address;
         longitude = body.results[0].geometry.location.lng;
@@ -39,6 +46,7 @@ request(
         console.log(`Address: ${formattedAddress}`);
         console.log(`Longitue: ${longitude}`);
         console.log(`Lattitude: ${lattitude}`);
+    }
 });
 
 setTimeout( () => {
