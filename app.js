@@ -20,7 +20,7 @@ let apiAddress = `https://maps.googleapis.com/maps/api/geocode/json?address=`;
 let addressEncoded = encodeURIComponent(argv.address); //gets the address variablea and encodes it
 let addressDecoded = decodeURIComponent(addressEncoded); //decodes teh address to be more readable
 let inputAddress = `${apiAddress}${addressEncoded}`;
-console.log(inputAddress);
+// console.log(inputAddress);
 //console.log(`Address: ${addressDecoded}`);
 let formattedAddress = ``;
 let longitude = null;
@@ -35,7 +35,7 @@ request(
     if(error){
         console.log(`Unable to connect to servers.`);
         console.log(error);
-    }else if(body.status === 'ZERO RESULTS'){
+    }else if(body.status === 'ZERO_RESULTS'){
         console.log(`Unable to locate that address or zip code...`);
         console.log(`Please enter a valid address or zip code.`);
     }else if(body.status === 'OK'){
