@@ -9,8 +9,6 @@ request(
         { 
     url: inputAddress,
     json: true //this property converts json string into json object
-    }, 
-    
-    (error, response, body) => {
-        console.log(body);
+}, (error, response, body) => {
+        console.log(JSON.stringify(body, undefined, 2));
 });
