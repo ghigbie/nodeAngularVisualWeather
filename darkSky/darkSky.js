@@ -20,7 +20,7 @@ let callWeather = (apiAddress, callback) => {
                 ozone: body.currently.ozone,
                 uvIndex: body.currently.uvIndex
             });
-
+            console.log(`printing`);
             console.log(body.currently.temperature);
         }
         

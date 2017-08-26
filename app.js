@@ -31,8 +31,26 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
         longitude = results.longitude;
         let fullAPIRequest = `${darkAPI}/${apiKey.apiKey}/${latitude},${longitude}`;
         console.log(fullAPIRequest);
+        darkSky.callWeather('https://api.darksky.net/forecast/9f6325a874ba4e46242d3e5e3c349a27/39.5835785,-104.8571368' , (errorMessage, results));
+        
     }
 });
 
-console.log(fullAPIRequest);
-darkSky.callWeather('https://api.darksky.net/forecast/9f6325a874ba4e46242d3e5e3c349a27/39.5835785,-104.8571368');
+const request = require('request');
+
+request(
+    {
+        url: 'https://api.darksky.net/forecast/9f6325a874ba4e46242d3e5e3c349a27/39.5835785,-104.8571368',
+        json: true
+    },
+    (error, response, body) => {
+        if(error){
+            console.log(`Unable to connect to Forecast.io servers.`);
+        }else if(response.statusCode === 404){
+            console.log(`Unable to locate this location...Pleaese try a different location.`);
+        }else if(response.statusCode === 404){
+            console.log(`Unable to locate this location...Pleaese try a different location.`);
+        }else{
+            console.log(body.currently.temperature);
+        }
+    });
