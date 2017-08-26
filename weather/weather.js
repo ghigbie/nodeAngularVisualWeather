@@ -29,5 +29,5 @@ let getWeather = (apiAddress, callback) => {
 };
 
 module.exports = {
-    callWeather
+    getWeather
 };
