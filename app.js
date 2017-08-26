@@ -31,7 +31,15 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
         longitude = results.longitude;
         let fullAPIRequest = `${darkAPI}/${apiKey.apiKey}/${latitude},${longitude}`;
         console.log(`Full API request: ${fullAPIRequest}`);
+        //weather.getWeather(latitude, longitude, () => {});
     }
 });
 
-weather.get
+
+weather.getWeather(39.5835785, -104.8571368, (errorMessage, weatherResults) => {
+    if(errorMessage){
+        console.log(errorMessage);
+    }else{
+        console.log(JSON.stringify(weatherResults, undefined, 2));
+    }
+});

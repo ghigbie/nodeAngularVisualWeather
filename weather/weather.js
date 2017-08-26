@@ -1,20 +1,22 @@
 const request = require('request');
 
-const apiKey = require('./apiKey/apiKey');
+const apiKey = require('./../apiKey/apiKey');
 const darkAPI = `https://api.darksky.net/forecast`;
+const apiKeyString = apiKey.apiKey;
 
 let getWeather = (latitude, longitude, callback) => {
     console.log(`Fetching weather...`);
     request(
         {
-            url: `${darkAPI}/${apiKey}/${latitude},${longitude}`,
+            url: `${darkAPI}/${apiKeyString}/${latitude},${longitude}`,
             json: true
         },
+        
         (error, response, body) => {
             if(!error && response.statusCode === 200){
                 let temperature = body.currently.temperature;
                 let feelsLike = body.currently.apparentTemperature;
-                callback(`The temperature is: ${temperature}, bit it feels like ${feelsLike}.`);
+                callback(`The temperature is: ${temperature}, but it feels like ${feelsLike}.`);
                 callback(undefined, {
                     temperature: body.currently.temperature,
                     feelsLike: body.currently.apparentTemperature,
@@ -26,8 +28,7 @@ let getWeather = (latitude, longitude, callback) => {
             }else{
                 console.log(`Unable fetch weather.`);
             }
-        });
-
+    });
 };
 
 module.exports = {
