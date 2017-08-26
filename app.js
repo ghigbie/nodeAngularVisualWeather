@@ -28,4 +28,5 @@ const darkAPI = `https://api.darksky.net/forecast`;
 
 let latitude = ``;
 let longitude = ``;
-let fullAPIRequest = `${darkAPI}/${apiKey.apiKey}/${latitude}/${longitude}`;
+let fullAPIRequest = `${darkAPI}/${apiKey.apiKey}/${latitude},${longitude}`;
+console.log(fullAPIRequest);
