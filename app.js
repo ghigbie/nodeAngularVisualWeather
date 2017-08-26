@@ -26,20 +26,18 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
     if(errorMessage){
         console.log(errorMessage);
     }else{
+        console.log(results.address);
         console.log(JSON.stringify(results, undefined, 2));
         latitude = results.latitude;
         longitude = results.longitude;
-        let fullAPIRequest = `${darkAPI}/${apiKey.apiKey}/${latitude},${longitude}`;
-        console.log(`Full API request: ${fullAPIRequest}`);
-        //weather.getWeather(latitude, longitude, () => {});
+        weather.getWeather(latitude, longitude, (errorMessage, weatherResults) => {
+            if(errorMessage){
+                console.log(errorMessage);
+            }else{
+                console.log(JSON.stringify(weatherResults, undefined, 2));
+            }   
+        });
     }
 });
 
 
-weather.getWeather(39.5835785, -104.8571368, (errorMessage, weatherResults) => {
-    if(errorMessage){
-        console.log(errorMessage);
-    }else{
-        console.log(JSON.stringify(weatherResults, undefined, 2));
-    }
-});

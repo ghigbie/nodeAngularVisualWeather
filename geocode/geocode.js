@@ -15,7 +15,6 @@ let geocodeAddress = (inputAddress, callback) => {
         }else if(body.status === 'ZERO_RESULTS'){
             callback(`Unable to locate that address or zip code...\n Please enter a valid address or zip code.`); //this line beomes the error message
         }else if(body.status === 'OK'){
-            console.log(`Printing "results.address"...`)
             callback(undefined, {
                 address: body.results[0].formatted_address,
                 latitude: body.results[0].geometry.location.lat,
