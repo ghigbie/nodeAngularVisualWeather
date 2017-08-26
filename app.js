@@ -31,7 +31,7 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
         longitude = results.longitude;
         let fullAPIRequest = `${darkAPI}/${apiKey.apiKey}/${latitude},${longitude}`;
         console.log(`Full API request: ${fullAPIRequest}`);
-        darkSky.callWeather('https://api.darksky.net/forecast/9f6325a874ba4e46242d3e5e3c349a27/39.5835785,-104.8571368' , (errorMessage, results) =>{
+        darkSky.callWeather(`${darkAPI}/${apiKey.apiKey}/39.5835785,-104.8571368` , (errorMessage, results) =>{
             if(errorMessage){
                 console.log('boo');
             }else{
@@ -47,12 +47,12 @@ const request = require('request');
 
 request(
     {
-        url: 'https://api.darksky.net/forecast/9f6325a874ba4e46242d39.5835785,-104.8571368',
+        url: `${darkAPI}/${apiKey.apiKey}/39.5835785,-104.8571368`,
         json: true
     },
     (error, response, body) => {
         if(!error && response.statusCode === 200){
-            console.log(`Teh temperature is: ${body.currently.temperature}`);
+            console.log(`The temperature is: ${body.currently.temperature}`);
         }else{
             console.log(`Unable fetch weather.`);
         }
