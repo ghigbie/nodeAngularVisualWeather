@@ -2,12 +2,13 @@ const yargs = require('yargs');
 
 const geocode = require('./geocode/geocode');
 const weather = require ('./weather/weather');
-const apiKey = require('./apiKey');
 
-const darkAPI = `https://api.darksky.net/forecast`;
-let latitude = ``;
-let longitude = ``;
-let fullAPIRequest = ``;
+let address = ``;
+let temperature = null;
+let fellsLike = null;
+let rainChance = null;
+let ozone = null;
+let uvIndex = null;
 
 const argv = yargs
     .options({
@@ -28,8 +29,8 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
     }else{
         console.log(results.address);
         console.log(JSON.stringify(results, undefined, 2));
-        latitude = results.latitude;
-        longitude = results.longitude;
+        let latitude = results.latitude;
+        let longitude = results.longitude;
         weather.getWeather(latitude, longitude, (errorMessage, weatherResults) => {
             if(errorMessage){
                 console.log(errorMessage);
