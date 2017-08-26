@@ -15,6 +15,14 @@ let getWeather = (latitude, longitude, callback) => {
                 let temperature = body.currently.temperature;
                 let feelsLike = body.currently.apparentTemperature;
                 callback(`The temperature is: ${temperature}, bit it feels like ${feelsLike}.`);
+                callback(undefined, {
+                    temperature: body.currently.temperature,
+                    feelsLike: body.currently.apparentTemperature,
+                    rainChance: body.currently.precipProbability,
+                    windSpeed: body.currently.windSpped,
+                    ozone: body.currently.ozone,
+                    uvIndex: body.currently.uvIndex
+                });
             }else{
                 console.log(`Unable fetch weather.`);
             }
