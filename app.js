@@ -1,6 +1,7 @@
 const yargs = require('yargs');
 
 const geocode = require('./geocode/geocode');
+const apiKey = require('./apiKey');
 
 const argv = yargs
     .options({
@@ -23,9 +24,9 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
     }
 });
 
-const apiKey = apiKey.apiKey;
+const apiKeyNum = apiKey.apiKey;
 const darkAPI = `https://api.darksky.net/forecast`;
 
 let latitude = ``;
 let longitude = ``;
-let fullAPIRequest = `${darkAPI}/${apiKey}/${latitude}/${longitude}`;
+let fullAPIRequest = `${darkAPI}/${apiKeyNum}/${latitude}/${longitude}`;
