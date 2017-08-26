@@ -24,9 +24,8 @@ geocode.geocodeAddress(argv.address, (errorMessage, results) => {
     }
 });
 
-const apiKeyNum = apiKey.apiKey;
 const darkAPI = `https://api.darksky.net/forecast`;
 
 let latitude = ``;
 let longitude = ``;
-let fullAPIRequest = `${darkAPI}/${apiKeyNum}/${latitude}/${longitude}`;
+let fullAPIRequest = `${darkAPI}/${apiKey.apiKey}/${latitude}/${longitude}`;
