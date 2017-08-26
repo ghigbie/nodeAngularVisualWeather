@@ -2,6 +2,7 @@ const request = require('request');
 
 
 let callWeather = (apiAddress, callback) => {
+    console.log(`calling weather`);
     request(
         {
             url: apiAddress,
