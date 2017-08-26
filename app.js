@@ -47,7 +47,7 @@ const request = require('request');
 
 request(
     {
-        url: 'https://api.darksky.net/forecast/9f6325a874ba4e46242d3e5e3c349a27/39.5835785,-104.8571368',
+        url: 'https://api.darksky.net/forecast/9f6325a874ba4e46242d39.5835785,-104.8571368',
         json: true
     },
     (error, response, body) => {
@@ -55,6 +55,5 @@ request(
             console.log(`Teh temperature is: ${body.currently.temperature}`);
         }else{
             console.log(`Unable fetch weather.`);
-            console.log(body.currently.temperature);
         }
     });
