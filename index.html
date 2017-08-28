@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="weatherModule">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,9 +32,9 @@
                 <button class="btn btn-danger center"
                         id="mainButton"
                         ng-click="">Get the Weather</button>
-                <button class="btn btn-danger center"
-                        ng-cloak
-                        ng-click="reloadPage()">Clear</button>
+                <!--<button class="btn btn-danger center"-->
+                <!--        ng-cloak-->
+                <!--        ng-click="reloadPage()">Clear</button>-->
             </form>
             <div>
                 <h2 id="addressInput" ng-cloak>{{ addressInput }}</h2>
