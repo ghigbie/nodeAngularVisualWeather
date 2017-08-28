@@ -5,7 +5,7 @@ const weather = require ('./weather/weather');
 
 let address = ``;
 let temperature = null;
-let fellsLike = null;
+let feelsLike = null;
 let rainChance = null;
 let ozone = null;
 let uvIndex = null;
@@ -23,6 +23,7 @@ const argv = yargs
     .alias('help', 'h')
     .argv;
     
+//for command line   
 geocode.geocodeAddress(argv.address, (errorMessage, results) => {
     if(errorMessage){
         console.log(errorMessage);

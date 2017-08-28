@@ -24,6 +24,7 @@
                 <div class="form-group">
                     <label>Please enter your zip code or city and state.</label>
                     <input class="form-control" 
+                        id="inputAddress"
                         type="text" id="location" 
                         name="location" 
                         placeholder="96817...Honolulu, HI"
@@ -32,11 +33,11 @@
                 
                 <button class="btn btn-danger center"
                         id="mainButton"
-                        ng-click="">Get Weather</button>
+                        ng-click="getAddress();">Get Weather</button>
                 <button class="btn btn-danger center"
                         ng-cloak
                         ng-hide="true"
-                        ng-click="reloadPage()">Clear</button>
+                        ng-click="reloadPage();">Clear</button>
             </form>
             <div ng-cloak>
                 <h2 id="addressInput">{{ addressInput }}</h2>
