@@ -17,8 +17,8 @@
         
         <div class="container main-content flex-box">
             <div>
-                <h2 ng-cloak>{{ weatherInput }}</h2>
-                
+                <h2 id="addressInput" ng-cloak>{{ addressInput }}</h2>
+                <h2> </h2>
             </div>
             <form>
                 <div class="form-group">
@@ -27,15 +27,21 @@
                         type="text" id="location" 
                         name="location" 
                         placeholder="96817...Honolulu, HI"
-                        ng-model="weatherInput">
+                        ng-model="addressInput">
                 </div>
                 <button class="btn btn-danger center"
-                        ng-click="">Click to Get the Weather</button>
+                        id="mainButton"
+                        ng-click="">Get the Weather</button>
+                <button class="btn btn-danger center"
+                        ng-cloak
+                        ng-click="reloadPage()">Clear</button>
             </form>
+            <div>
+                <h2 id="addressInput" ng-cloak>{{ addressInput }}</h2>
+                <h2> </h2>
+            </div>
         </div>
-        <div class="container man-content flex-box">
-            <h2 ng-cloak>{{ weatherInput }}</h2>
-        </div>
+
         <script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
         <script type="text/javascript" src="./public/scripts/ng_functions"></script>
         <script type="text/javascript" src="app.js"></script>
