@@ -16,14 +16,25 @@
         </nav>
         
         <div class="container main-content flex-box">
+            <div>
+                <h2 ng-cloak>{{ weatherInput }}</h2>
+                
+            </div>
             <form>
                 <div class="form-group">
                     <label>Please enter your zip code or city and state.</label>
-                    <input class="form-control" type="text" id="location" name="location" placeholder="96817...Honolulu, HI">
+                    <input class="form-control" 
+                        type="text" id="location" 
+                        name="location" 
+                        placeholder="96817...Honolulu, HI"
+                        ng-model="weatherInput">
                 </div>
             </form>
         </div>
-        <div class="container man-content flex-box"></div>
+        <div class="container man-content flex-box">
+            <h2 ng-cloak>{{ weatherInput }}</h2>
+        </div>
         <script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
     </body>
 </html>
