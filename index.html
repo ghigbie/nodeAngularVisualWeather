@@ -15,10 +15,10 @@
             </div>
         </nav>
         
-        <div class="container main-content flex-box">
-            <div>
-                <h2 id="addressInput" ng-cloak>{{ addressInput }}</h2>
-                <h2> </h2>
+        <div class="container main-content flex-box" ngController="WeatherController">
+            <div ng-cloak>
+                <h2 id="addressInput">{{ addressInput }}</h2>
+                <h2 id="weatherOutput"> </h2>
             </div>
             <form>
                 <div class="form-group">
@@ -29,21 +29,26 @@
                         placeholder="96817...Honolulu, HI"
                         ng-model="addressInput">
                 </div>
+                
                 <button class="btn btn-danger center"
                         id="mainButton"
-                        ng-click="">Get the Weather</button>
-                <!--<button class="btn btn-danger center"-->
-                <!--        ng-cloak-->
-                <!--        ng-click="reloadPage()">Clear</button>-->
+                        ng-click="">Get Weather</button>
+                <button class="btn btn-danger center"
+                        ng-cloak
+                        ng-hide="true"
+                        ng-click="reloadPage()">Clear</button>
             </form>
-            <div>
-                <h2 id="addressInput" ng-cloak>{{ addressInput }}</h2>
-                <h2> </h2>
+            <div ng-cloak>
+                <h2 id="addressInput">{{ addressInput }}</h2>
+                <h2 id="weatherOutput"> </h2>
             </div>
         </div>
 
         <script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
-        <script type="text/javascript" src="./public/scripts/ng_functions"></script>
+        <script type="text/javascript" src="./modules/weatherModule.js"></script>
+        <script type="text/javascript" src="./controllers/WeatherController.js"></script>
+        <!--<script type="text/javascript" src="./public/scripts/ng_functions"></script>-->
+        <!--<script type="text/javascript" src="app.js"></script>-->
         <script type="text/javascript" src="app.js"></script>
     </body>
 </html>

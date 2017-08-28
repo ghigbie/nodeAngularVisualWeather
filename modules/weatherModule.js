@@ -1,6 +1,6 @@
 /* global angular*/
 (function(){
     
-    let weatherModule = angular.module('weatherModule', []);
+    var weatherModule = angular.module('weatherModule', []);
     
 }());
