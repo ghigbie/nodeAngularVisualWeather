@@ -29,12 +29,15 @@
                         placeholder="96817...Honolulu, HI"
                         ng-model="weatherInput">
                 </div>
+                <button class="btn btn-danger center"
+                        ng-click="">Click to Get the Weather</button>
             </form>
         </div>
         <div class="container man-content flex-box">
             <h2 ng-cloak>{{ weatherInput }}</h2>
         </div>
         <script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>
+        <script type="text/javascript" src="./public/scripts/ng_functions"></script>
         <script type="text/javascript" src="app.js"></script>
     </body>
 </html>
