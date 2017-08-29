@@ -16,27 +16,21 @@
         </nav>
         
         <div class="container main-content flex-box">
-            <div id="post-address">
+            <div id="postaddress">
             </div>
             
-            <div id="post-weather">
+            <div id="postweather">
             </div>
             
             <form>
                 <div class="form-group">
-                    <label>Please enter your zip code or city and state.</label>
-                    <input class="form-control" 
-                        id="inputAddress"
-                        type="text" id="location" 
-                        name="location" 
-                        placeholder="96817...Honolulu, HI"
-                        ng-model="addressInput">
+                    <label id="label">Please enter your zip code or city and state.</label>
+                    <input class="form-control" id="inputAddress" type="text" id="location" name="location" placeholder="96817...Honolulu, HI">
                 </div>
-                
                 <button class="btn btn-danger center" id="mainButton" onclick="getWeather()">Get Weather</button>
-                <button class="btn btn-danger center" onclick="reloadPage()">Clear</button>
             </form>
-        </div>
+        </div>            
+        <button class="btn btn-danger center" onclick="reloadPage()">Clear</button>
         <script type="text/javascript" src="visual-app.js"></script>
     </body>
 </html>
