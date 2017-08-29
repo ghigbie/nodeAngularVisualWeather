@@ -17,26 +17,45 @@ const argv = yargs
     .argv;
 
 let address = argv.address;
+
+//these are the varaibles that I want to show to the page
 let formattedAddress  = ``;
+let temperature = null;
+let feelsLike = null;
+let rainChance = null;
+let windSpeed = null;
+let ozone = null;
+let uvIndex = null;
 
 let geocodeAddress = (inputAddress) => {
     let encodedAddress = encodeURIComponent(inputAddress);
-    let baseURLAddress = `https://maps.googleapis.com/maps/api/geocode/json?address=`;
-    let fullURLAddress = `${baseURLAddress}${encodedAddress}`;
+    let URLAddress = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`;
     
-    axios.get(fullURLAddress).then((response) => {
+    axios.get(URLAddress).then((response) => {
         if(response.data.status === 'ZERO_RESULTS'){
             throw new Error(`Unable to locate that address or zip code...\n Please enter a valid address or zip code.`);
         }
-        formattedAddress = response.data. results[0].address;
+        formattedAddress = response.data.results[0].formatted_address;
         console.log(formattedAddress);
     
         const darkSkysURL = `https://api.darksky.net/forecast`;
         const apiKeyString = apiKey.apiKey;
-        let latitude = response.data.results[0].geometry.lat;
-        let longitude = response.data.results[0].geometry.lng;
-        let fullRequestAddress = `${darkSkysURL}/${apiKeyString}/${latitude},${longitude}`;
+        let latitude = response.data.results[0].geometry.location.lat;
+        let longitude = response.data.results[0].geometry.location.lng;
+        let fullURLWeather = `${darkSkysURL}/${apiKeyString}/${latitude},${longitude}`;
+        console.log(fullURLWeather);
+        return axios.get(fullURLWeather);
         
+    }).then((response) => {
+        
+        temperature =  response.data.currently.temperature;
+        feelsLike = response.data.currently.apparentTemperature;
+        rainChance = response.data.currently.precipProbability;
+        windSpeed = response.data.currently.windSpped;
+        ozone = response.data.currently.letozone;
+        uvIndex = response.data.currently.uvIndex;
+        
+        console.log(`The temperature is: ${temperature}, but it feels like ${feelsLike}.`);
     }).catch((e) => {
         if(e.code === 'ENOTFOUND'){
             console.log('Unable to connect to API servers');
