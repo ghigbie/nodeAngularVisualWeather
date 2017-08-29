@@ -14,8 +14,18 @@ const argv = yargs
     .alias('help', 'h')
     .argv;
 
-let encodedAddress = encodeURIComponent(argv.address);
-console.log(encodedAddress);
-// let geocodeAddress = (encodeAddress) => {
+let address = argv.address;
+
+let geocodeAddress = (inputAddress) => {
+    let encodedAddress = encodeURIComponent(inputAddress);
+    let baseURLAddress = `https://maps.googleapis.com/maps/api/geocode/json?address=`;
+    let fullURLAddress = `${baseURLAddress}${encodedAddress}`;
     
-// }
+    axios.get(fullURLAddress).then((response) => {
+        console.log(response.data);
+    }, (errorMessage) => {
+        console.log(errorMessage);
+    });
+};
+
+geocodeAddress(address);
