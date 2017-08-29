@@ -23,9 +23,9 @@ let geocodeAddress = (inputAddress) => {
     
     axios.get(fullURLAddress).then((response) => {
         console.log(response.data);
-    }, (errorMessage) => {
-        console.log(errorMessage);
+    }).catch((e) => {
+       console.log(e); 
     });
-};
+}
 
 geocodeAddress(address);
