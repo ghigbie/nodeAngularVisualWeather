@@ -1,5 +1,7 @@
 const yargs = require('yargs');
-const axios = require('axios')
+const axios = require('axios');
+
+const apiKey = require('./apiKey/apiKey');
 
 const argv = yargs
     .options({
@@ -15,6 +17,7 @@ const argv = yargs
     .argv;
 
 let address = argv.address;
+let formattedAddress  = ``;
 
 let geocodeAddress = (inputAddress) => {
     let encodedAddress = encodeURIComponent(inputAddress);
@@ -25,8 +28,15 @@ let geocodeAddress = (inputAddress) => {
         if(response.data.status === 'ZERO_RESULTS'){
             throw new Error(`Unable to locate that address or zip code...\n Please enter a valid address or zip code.`);
         }
- 
-        console.log(response.data);
+        formattedAddress = response.data. results[0].address;
+        console.log(formattedAddress);
+    
+        const darkSkysURL = `https://api.darksky.net/forecast`;
+        const apiKeyString = apiKey.apiKey;
+        let latitude = response.data.results[0].geometry.lat;
+        let longitude = response.data.results[0].geometry.lng;
+        let fullRequestAddress = `${darkSkysURL}/${apiKeyString}/${latitude},${longitude}`;
+        
     }).catch((e) => {
         if(e.code === 'ENOTFOUND'){
             console.log('Unable to connect to API servers');
@@ -34,6 +44,6 @@ let geocodeAddress = (inputAddress) => {
             console.log(e.message);
         }
     });
-}
+};
 
 geocodeAddress(address);
