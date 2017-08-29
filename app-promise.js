@@ -1,5 +1,5 @@
 const yargs = require('yargs');
-const axios = require('axios');
+const axios = require('axios')
 
 const argv = yargs
     .options({
@@ -22,9 +22,17 @@ let geocodeAddress = (inputAddress) => {
     let fullURLAddress = `${baseURLAddress}${encodedAddress}`;
     
     axios.get(fullURLAddress).then((response) => {
+        if(response.data.status === 'ZERO_RESULTS'){
+            throw new Error(`Unable to locate that address or zip code...\n Please enter a valid address or zip code.`);
+        }
+ 
         console.log(response.data);
     }).catch((e) => {
-       console.log(e); 
+        if(e.code === 'ENOTFOUND'){
+            console.log('Unable to connect to API servers');
+        }else{
+            console.log(e.message);
+        }
     });
 }
 
