@@ -50,12 +50,14 @@ let geocodeAddress = (inputAddress) => {
         
         temperature =  response.data.currently.temperature;
         feelsLike = response.data.currently.apparentTemperature;
-        rainChance = response.data.currently.precipProbability;
+        rainChance = response.data.currently.precipProbability * 100;
         windSpeed = response.data.currently.windSpped;
         ozone = response.data.currently.letozone;
         uvIndex = response.data.currently.uvIndex;
         
         console.log(`The temperature is: ${temperature}, but it feels like ${feelsLike}.`);
+        console.log(`The chance of rain is ${rainChance}.`);
+        console.log(`The UV Index is ${uvIndex}.`);
     }).catch((e) => {
         if(e.code === 'ENOTFOUND'){
             console.log('Unable to connect to API servers');
