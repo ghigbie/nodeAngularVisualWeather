@@ -77,7 +77,7 @@ let postDataToPage = (add, temp, feel, rain, wind, ozone, uv) => {
     
     let temperatureDisplay = `<h4>The current temperature is ${temp} degrees Fahrenheit.</h4>`;
     let feelsLikeDisplay = `<h4>However, it feels like ${feel} degrees Fahrenheit outside.</h4>`;
-    let rainChanceDisplay = `<h4>The chance of rain is ${rain}</h4>`;
+    let rainChanceDisplay = `<h4>The chance of rain is ${rain}%</h4>`;
     let windSpeedDisplay = `<h4>The current wind speed is ${wind} mph.</h4>`;
     let ozoneDisplay = `<h4>The ozone level is ${ozone}.</h4>`;
     let uvIndexDisplay = `<h4>The UV Index is ${uv}.</h4>`;
@@ -90,4 +90,4 @@ let postDataToPage = (add, temp, feel, rain, wind, ozone, uv) => {
 
 // postDataToPage('adfa;klfjaldfjaklj', 'b', 'c', 'd', 'e', 'f', 'g');
 
-postDataToPage('moo');
+postDataToPage('moo' , 98, 67, 100, 'a', 'b', 'c');
