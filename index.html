@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="weatherModule">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,17 +15,13 @@
             </div>
         </nav>
         
-        <div class="container main-content flex-box" ngController="WeatherController">
-            <div ng-cloak>
-                <h2 id="addressInput">{{ addressInput }}</h2>
-                <h2 id="weatherOutput"> </h2>
-            </div>
+        <div class="container main-content flex-box">
             <div id="post-address">
-                
             </div>
+            
             <div id="post-weather">
-                
             </div>
+            
             <form>
                 <div class="form-group">
                     <label>Please enter your zip code or city and state.</label>
@@ -37,26 +33,10 @@
                         ng-model="addressInput">
                 </div>
                 
-                <button class="btn btn-danger center"
-                        id="mainButton"
-                        ng-click="getWeather()">Get Weather</button>
-                <button class="btn btn-danger center"
-                        ng-cloak
-                        ng-hide="true"
-                        ng-click="reloadPage();">Clear</button>
+                <button class="btn btn-danger center" id="mainButton" onclick="getWeather()">Get Weather</button>
+                <button class="btn btn-danger center" onclick="reloadPage()">Clear</button>
             </form>
-            <div ng-cloak>
-                <h2 id="addressInput">{{ addressInput }}</h2>
-                <h2 id="weatherOutput"> </h2>
-            </div>
         </div>
-
-        <!--<script type="text/javascript" src="./node_modules/angular/angular.min.js"></script>-->
-        <!--<script type="text/javascript" src="./modules/weatherModule.js"></script>-->
-        <!--<script type="text/javascript" src="./controllers/WeatherController.js"></script>-->
-        <!--<script type="text/javascript" src="./public/scripts/ng_functions"></script>-->
-        <!--<script type="text/javascript" src="app.js"></script>-->
-        <script type="text/javascript" src="weatehrApp.js"></script>
         <script type="text/javascript" src="visual-app.js"></script>
     </body>
 </html>

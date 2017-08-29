@@ -1,22 +1,22 @@
-// const yargs = require('yargs');
+const yargs = require('yargs');
 const axios = require('axios');
 
 const apiKey = require('./apiKey/apiKey');
 
-// const argv = yargs
-//     .options({
-//         a:{
-//             demand: true,
-//             alias: 'address',
-//             describe: 'Address to fetch weather for',
-//             string: true
-//         }
-//     })
-//     .help()
-//     .alias('help', 'h')
-//     .argv;
+const argv = yargs
+    .options({
+        a:{
+            demand: true,
+            alias: 'address',
+            describe: 'Address to fetch weather for',
+            string: true
+        }
+    })
+    .help()
+    .alias('help', 'h')
+    .argv;
 
-// let address = argv.address;
+let address = argv.address;
 
 //these are the varaibles that I want to show to the page
 let formattedAddress  = ``;
