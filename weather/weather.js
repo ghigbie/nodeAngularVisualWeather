@@ -20,9 +20,9 @@ let getWeather = (latitude, longitude, callback) => {
                 callback(undefined, {
                     temperature: body.currently.temperature,
                     feelsLike: body.currently.apparentTemperature,
-                    rainChance: body.currently.precipProbability,
+                    rainChance: body.currently.precipProbability *100,
                     windSpeed: body.currently.windSpped,
-                    ozone: body.currently.letozone,
+                    ozone: body.currently.ozone,
                     uvIndex: body.currently.uvIndex
                 });
             }else{
