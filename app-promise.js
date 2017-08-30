@@ -43,7 +43,6 @@ let geocodeAddress = (inputAddress) => {
         let latitude = response.data.results[0].geometry.location.lat;
         let longitude = response.data.results[0].geometry.location.lng;
         let fullURLWeather = `${darkSkysURL}/${apiKeyString}/${latitude},${longitude}`;
-        console.log(fullURLWeather);
         return axios.get(fullURLWeather);
         
     }).then((response) => {
@@ -56,7 +55,7 @@ let geocodeAddress = (inputAddress) => {
         uvIndex = response.data.currently.uvIndex;
         
         console.log(`The temperature is: ${temperature}, but it feels like ${feelsLike}.`);
-        console.log(`The chance of rain is ${rainChance}.`);
+        console.log(`The chance of rain is ${rainChance} %.`);
         console.log(`The UV Index is ${uvIndex}.`);
     }).catch((e) => {
         if(e.code === 'ENOTFOUND'){
